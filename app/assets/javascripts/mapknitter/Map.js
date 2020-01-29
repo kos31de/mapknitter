@@ -616,6 +616,8 @@ MapKnitter.Map = MapKnitter.Class.extend({
 
   setupCollection: function() {
 
+console.log('fetchStatusUrl', fetchStatusUrl);
+
     // customize the function that starts up the export
     function fetchStatusUrl(opts) {
       console.log('fetch status json', opts);
@@ -679,6 +681,8 @@ MapKnitter.Map = MapKnitter.Class.extend({
 
       opts.resolve(); // stop the spinner
     }
+
+console.log('fetchStatusUrl', fetchStatusUrl);
 
     map._imgGroup = L.distortableCollection({
       editable: !mapknitter.readOnly,
