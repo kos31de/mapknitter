@@ -616,15 +616,6 @@ MapKnitter.Map = MapKnitter.Class.extend({
 
   setupCollection: function() {
 
-    map._imgGroup = L.distortableCollection({
-      editable: !mapknitter.readOnly,
-      exportOpts: {
-        // exportUrl: 'http://34.74.118.242/api/v2/export/', // to swap to JS exporter
-        // exportStartUrl: 'http://34.74.118.242/api/v2/export/', // to swap to JS exporter
-        fetchStatusUrl: fetchStatusUrl
-      }
-    }).addTo(map);
-
     // customize the function that starts up the export
     function fetchStatusUrl(opts) {
       console.log('fetch status json', opts);
@@ -688,6 +679,15 @@ MapKnitter.Map = MapKnitter.Class.extend({
 
       opts.resolve(); // stop the spinner
     }
+
+    map._imgGroup = L.distortableCollection({
+      editable: !mapknitter.readOnly,
+      exportOpts: {
+        // exportUrl: 'http://34.74.118.242/api/v2/export/', // to swap to JS exporter
+        // exportStartUrl: 'http://34.74.118.242/api/v2/export/', // to swap to JS exporter
+        fetchStatusUrl: fetchStatusUrl
+      }
+    }).addTo(map);
 
     var sidebar = document.querySelector('body > div.sidebar');
 
